@@ -1,4 +1,4 @@
-package com.meritus.dynamickafkaconsumer.model;
+package com.belvenix.dynamickafkaconsumer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomKafkaListenerProperty {
 
-    private String topic;
+    private String topicSuffix;
     private String listenerClass;
-    private String groupId;
 }

@@ -1,6 +1,6 @@
-package com.meritus.dynamickafkaconsumer.configuration;
+package com.belvenix.dynamickafkaconsumer.configuration;
 
-import com.meritus.dynamickafkaconsumer.model.CustomKafkaListenerProperty;
+import com.belvenix.dynamickafkaconsumer.model.CustomKafkaListenerProperty;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

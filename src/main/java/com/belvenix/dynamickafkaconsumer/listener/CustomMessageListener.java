@@ -1,4 +1,4 @@
-package com.meritus.dynamickafkaconsumer.listener;
+package com.belvenix.dynamickafkaconsumer.listener;
 
 import org.springframework.kafka.config.KafkaListenerEndpoint;
 import org.springframework.kafka.config.MethodKafkaListenerEndpoint;

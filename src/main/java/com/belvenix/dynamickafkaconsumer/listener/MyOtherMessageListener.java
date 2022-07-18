@@ -1,4 +1,4 @@
-package com.meritus.dynamickafkaconsumer.listener;
+package com.belvenix.dynamickafkaconsumer.listener;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;
@@ -12,15 +12,15 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.CompletableFuture;
 
 @Component
-public class MyCustomMessageListener extends CustomMessageListener {
+public class MyOtherMessageListener extends CustomMessageListener {
 
     @Override
     @SneakyThrows
     public KafkaListenerEndpoint createKafkaListenerEndpoint(String name, String topic, String groupId) {
         MethodKafkaListenerEndpoint<String, String> kafkaListenerEndpoint =
                 createDefaultMethodKafkaListenerEndpoint(name, topic, groupId);
-        kafkaListenerEndpoint.setBean(new MyMessageListener());
-        kafkaListenerEndpoint.setMethod(MyMessageListener.class.getMethod("onMessage", ConsumerRecord.class));
+        kafkaListenerEndpoint.setBean(new MyOtherMessageListener.MyMessageListener());
+        kafkaListenerEndpoint.setMethod(MyOtherMessageListener.MyMessageListener.class.getMethod("onMessage", ConsumerRecord.class));
         return kafkaListenerEndpoint;
     }
 
@@ -28,11 +28,11 @@ public class MyCustomMessageListener extends CustomMessageListener {
     private static class MyMessageListener implements MessageListener<String, String> {
 
         @Override
-        public void onMessage(@NonNull ConsumerRecord<String, String> record) {
-            log.info("My message listener got a new record: " + record);
+        public void onMessage(@NonNull ConsumerRecord<String, String> consumerRecord) {
+            log.info("My other message listener got a new record: " + consumerRecord);
             CompletableFuture.runAsync(this::sleep)
                     .join();
-            log.info("My message listener done processing record: " + record);
+            log.info("My other message listener done processing record: " + consumerRecord);
         }
 
         @SneakyThrows

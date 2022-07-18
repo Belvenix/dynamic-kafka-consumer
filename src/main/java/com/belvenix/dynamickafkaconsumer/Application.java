@@ -1,6 +1,6 @@
-package com.meritus.dynamickafkaconsumer;
+package com.belvenix.dynamickafkaconsumer;
 
-import com.meritus.dynamickafkaconsumer.configuration.CustomKafkaListenerProperties;
+import com.belvenix.dynamickafkaconsumer.configuration.CustomKafkaListenerProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

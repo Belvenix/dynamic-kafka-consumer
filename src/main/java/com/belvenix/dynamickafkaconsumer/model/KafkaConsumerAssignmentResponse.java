@@ -1,4 +1,4 @@
-package com.meritus.dynamickafkaconsumer.model;
+package com.belvenix.dynamickafkaconsumer.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
